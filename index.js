@@ -27,7 +27,7 @@ client.on('message', msg => {
 
   client.on('message', msg => {
     if (msg.content === `/network creator`) {
-      msg.channel.sendMessage('The Creator of the Bot is `Derpy#6522`');
+      msg.channel.sendMessage('The Creator of the Bot is `Marshi [DEVELOPER]#0526`');
     }
   });
 
