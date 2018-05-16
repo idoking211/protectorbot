@@ -194,11 +194,6 @@ if( swearWords.some(word => message.content.includes(word)) ) {
   collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 }
 
-  if (cmd === `${prefix}say`){
- 		message.delete()
- 		message.channel.send(args.join(" "));
-}
-
   if (cmd === `${prefix}creator`){
     let botembed = new Discord.RichEmbed()
     .setDescription("Creators of the Bot")
@@ -300,10 +295,6 @@ bot.on('message', msg => {
   }
 });
 
-bot.on('message', msg => {
-  if (msg.content === '/avatar') {
-    msg.reply(`You need Mention someone`)
-  }
 });
 
 bot.login(process.env.BOT_TOKEN);
