@@ -8,18 +8,18 @@ const swearWords = ["fuck", "shit", "זונה", "חרא"];
 
 bot.on("ready", async () => {
   console.log(`Bot is Online!`);
-bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Playing});
+bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Watching});
 });
 
 // Updates the bot's status if he joins a server
 bot.on("guildCreate", guild => {
-bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Playing"});
+bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Watching"});
 });
 
 /// Updates the bot's status if he leaves a servers
 bot.on("guildDelete", guild => {
 bot.user.setActivity(
-        `${bot.guilds.size} servers | +help`, {type: "Playing"});
+        `${bot.guilds.size} servers | +help`, {type: "Watching"});
 });
 
 //welcome join
