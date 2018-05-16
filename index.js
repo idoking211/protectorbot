@@ -198,7 +198,7 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     let botembed = new Discord.RichEmbed()
     .setDescription("Creators of the Bot")
     .setColor("#ff9f04")
-    .addField("\nCreators","<@354952398772371458>\n<@311604263379795970>")
+    .addField("\nCreators","<@354952398772371458>\n<@311604263379795970>");
 
     return message.channel.send(botembed);
 }
