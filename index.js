@@ -8,30 +8,30 @@ const swearWords = ["fuck", "shit", "זונה", "חרא"];
 
 bot.on("ready", async () => {
   console.log(`Bot is Online!`);
-bot.user.setActivity(`${bot.guilds.size} servers | *help`, {type: "WATCHING"});
+bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Playing});
 });
 
 // Updates the bot's status if he joins a server
 bot.on("guildCreate", guild => {
-bot.user.setActivity(`${bot.guilds.size} servers | *help`, {type: "WATCHING"});
+bot.user.setActivity(`${bot.guilds.size} servers | +help`, {type: "Playing"});
 });
 
 /// Updates the bot's status if he leaves a servers
 bot.on("guildDelete", guild => {
 bot.user.setActivity(
-        `${bot.guilds.size} servers | *help`, {type: "WATCHING"});
+        `${bot.guilds.size} servers | +help`, {type: "Playing"});
 });
 
 //welcome join
 bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', 'suchpro‼');
+  const channel = member.guild.channels.find('name', 'welcome');
   if (!channel) return;
   channel.send(`Welcome to the server, ${member}`);
 });
 
 //welcome left
 bot.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', 'suchpro‼');
+  const channel = member.guild.channels.find('name', 'welcome');
   if (!channel) return;
   channel.send(`${member}, left the Server`);
 });
@@ -289,19 +289,19 @@ if(message.content.startsWith(prefix + "avatar ")) { //IF for the command.
  }});
 
 bot.on('message', msg => {
-  if (msg.content === '*ping') {
+  if (msg.content === '+ping') {
     msg.reply(`Pong! The ping is **${(bot.ping).toFixed(0)}**ms!  :ping_pong:`)
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === '*help') {
+  if (msg.content === '+help') {
     msg.reply(`תבדוק את ההודעות הפרטיות שלך!`)
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === '*avatar') {
+  if (msg.content === '+avatar') {
     msg.reply(`You need Mention someone`)
   }
 });
