@@ -8,18 +8,18 @@ const swearWords = ["fuck", "shit", "זונה", "חרא"];
 
 bot.on("ready", async () => {
   console.log(`Bot is Online!`);
-bot.user.setActivity(`${bot.guilds.size} servers | #help`, {type: "WATCHING"});
+bot.user.setActivity(`${bot.guilds.size} servers | ?help`, {type: "WATCHING"});
 });
 
 // Updates the bot's status if he joins a server
 bot.on("guildCreate", guild => {
-bot.user.setActivity(`${bot.guilds.size} servers | #help`, {type: "WATCHING"});
+bot.user.setActivity(`${bot.guilds.size} servers | ?help`, {type: "WATCHING"});
 });
 
 /// Updates the bot's status if he leaves a servers
 bot.on("guildDelete", guild => {
 bot.user.setActivity(
-        `${bot.guilds.size} servers | #help`, {type: "WATCHING"});
+        `${bot.guilds.size} servers | ?help`, {type: "WATCHING"});
 });
 
 //welcome join
@@ -178,7 +178,7 @@ if( swearWords.some(word => message.content.includes(word)) ) {
   let question = args.slice(0).join(" ");
 
   if (args.length === 0)
-  return message.reply('Invalid Format: /poll <Question>')
+  return message.reply('Invalid Format: #poll <Question>')
 
   const embed = new Discord.RichEmbed()
   .setTitle("A Poll Has Been Started!")
@@ -194,11 +194,12 @@ if( swearWords.some(word => message.content.includes(word)) ) {
   collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 }
 
+
   if (cmd === `${prefix}creator`){
     let botembed = new Discord.RichEmbed()
     .setDescription("Creators of the Bot")
     .setColor("#ff9f04")
-    .addField("\nCreators","<@354952398772371458>\n<@311604263379795970>");
+    .addField("\nCreators","<@354952398772371458>\n<@311604263379795970>")
 
     return message.channel.send(botembed);
 }
@@ -211,7 +212,7 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     .setColor("#268ccf")
     .setThumbnail(bicon)
     .addField("Moderation Commands","#kick (user) (reason) - Kick a User.\n#ban (user) (reason) - Ban a User.\n#report (user) (reason) - report about User.\n#warn (user) (reason) - Warn a User.")
-    .addField("Server Commands","#serverinfo - Server Informations.\n#membercount - Member Count.\n#say (message) - say your message.\n#poll (question) - Poll about Question\n#avatar @user - Avatar of the user.\n#ping - Ping Pong");
+    .addField("Server Commands","#serverinfo - Server Informations.\n#poll (question) - Poll about Question\n#ping - Ping Pong");
 
     return message.author.send(botembed);
   }
@@ -293,6 +294,7 @@ bot.on('message', msg => {
   if (msg.content === '#help') {
     msg.reply(`Check your Direct Messages!`)
   }
+});
 });
 
 bot.login(process.env.BOT_TOKEN);
