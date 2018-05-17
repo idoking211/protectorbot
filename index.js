@@ -1,6 +1,8 @@
 const botconfig = require("./botconfig.json");
 const color = require("./color.json");
 const Discord = require("discord.js");
+const Fortnite = require("fortnite")
+const Client = new fortnite("ae9f5ab0-f691-4207-b445-5686ec998441")
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -35,6 +37,39 @@ bot.on('guildMemberRemove', member => {
   if (!channel) return;
   channel.send(`${member}, left the Server`);
 });
+let username = args[0];
+let platform = args[1] || pc
+    let data = ft.getinfo(username, platform).then(data => {
+      
+      let stats = data.lifeTimeStats;
+      let kills = stats.find(s => s.stat == 'kills');
+      let wins = stats.find(s => s.stat == 'wins');
+      let kd = stats.find(s => s.stat == 'kd');
+      let mPlayed = stats.find(s => s.stat == 'matchesPlayed');
+      let tPlayed = stats.find(s => s.stat == 'TimePlayed');
+      let asTime = stats.find(s => s.stat == 'avgSurvivalTime');
+      
+      let embed = new discord.richembed()
+      .setTitle("Fortnite Stats")
+      .setAuthor(data.username)
+      .setcolor(confing.orange)
+      .addField("Kills", kills.value, true)
+      .addField("Wins", wins.value, true)
+      .addField("KD", kd.value, true)
+      .addField("Matches Played", mPlayed.value, true)
+      .addField("Time Played", tPlayed.value, true)
+      .addField("avgSurvivalTime", asTime.value, true);
+      
+      message.channel.send(embed);
+      
+      
+      
+}).catch(e => {
+      console.log(e);
+      message.channel.send("We are not finding this username in the database")
+      
+ });
+
 
 bot.on("message", async message => {
   if(message.author.bot) return;
