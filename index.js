@@ -295,6 +295,10 @@ bot.on('message', msg => {
     msg.reply(`Check Your DM!`)
   }
 });
-
+bot.on('message', msg => {
+  if (msg.content === '?avatar') {
+    msg.reply(`You need Mention someone`)
+  }
+  });
 
 bot.login(process.env.BOT_TOKEN);
