@@ -292,7 +292,7 @@ bot.on('message', msg => {
 
 bot.on('message', msg => {
   if (msg.content === '#help') {
-    msg.reply(`Check your Direct Messages!`)
+    msg.reply(`Check Your DM!`)
   }
 });
 });
