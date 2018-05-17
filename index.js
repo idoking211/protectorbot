@@ -295,6 +295,6 @@ bot.on('message', msg => {
     msg.reply(`Check Your DM!`)
   }
 });
-});
+
 
 bot.login(process.env.BOT_TOKEN);
