@@ -296,7 +296,7 @@ bot.on('message', msg => {
   }
 });
 bot.on('message', msg => {
-  if (msg.content === '?avatar') {
+  if (msg.content === '=avatar') {
     msg.reply(`You need Mention someone`)
   }
   });
