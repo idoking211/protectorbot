@@ -40,14 +40,7 @@ bot.on('guildMemberRemove', member => {
 
       
      
-  if(cmd === `${prefix}clear`){
 
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You dont have the Permission `MANAGE_MESSAGES`");
-  if(!args[0]) return message.channel.send(".clear [amount of messages]");
-  message.channel.bulkDelete(args[0]).then(() => {
-    message.channel.send(`:white_check_mark: Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
-  });
-}
 
 
 bot.on("message", async message => {
@@ -209,6 +202,16 @@ if( swearWords.some(word => message.content.includes(word)) ) {
 }
 
 
+    if(cmd === `${prefix}clear`){
+
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You dont have the Permission `MANAGE_MESSAGES`");
+  if(!args[0]) return message.channel.send("/clear [amount of messages]");
+  message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.send(`:white_check_mark: Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
+  });
+}
+  
+  
   if (cmd === `${prefix}creator`){
     let botembed = new Discord.RichEmbed()
     .setDescription("Creators of the Bot")
