@@ -37,38 +37,17 @@ bot.on('guildMemberRemove', member => {
   if (!channel) return;
   channel.send(`${member}, left the Server`);
 });
-let username = args[0];
-let platform = args[1] || pc
-    let data = ft.getinfo(username, platform).then(data => {
+
       
-      let stats = data.lifeTimeStats;
-      let kills = stats.find(s => s.stat == 'kills');
-      let wins = stats.find(s => s.stat == 'wins');
-      let kd = stats.find(s => s.stat == 'kd');
-      let mPlayed = stats.find(s => s.stat == 'matchesPlayed');
-      let tPlayed = stats.find(s => s.stat == 'TimePlayed');
-      let asTime = stats.find(s => s.stat == 'avgSurvivalTime');
-      
-      let embed = new discord.richembed()
-      .setTitle("Fortnite Stats")
-      .setAuthor(data.username)
-      .setcolor(confing.orange)
-      .addField("Kills", kills.value, true)
-      .addField("Wins", wins.value, true)
-      .addField("KD", kd.value, true)
-      .addField("Matches Played", mPlayed.value, true)
-      .addField("Time Played", tPlayed.value, true)
-      .addField("avgSurvivalTime", asTime.value, true);
-      
-      message.channel.send(embed);
-      
-      
-      
-}).catch(e => {
-      console.log(e);
-      message.channel.send("We are not finding this username in the database")
-      
- });
+     
+  if(cmd === `${prefix}clear`){
+
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You dont have the Permission `MANAGE_MESSAGES`");
+  if(!args[0]) return message.channel.send(".clear [amount of messages]");
+  message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.send(`:white_check_mark: Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
+  });
+}
 
 
 bot.on("message", async message => {
