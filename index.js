@@ -1,8 +1,6 @@
 const botconfig = require("./botconfig.json");
 const color = require("./color.json");
 const Discord = require("discord.js");
-const Fortnite = require("fortnite")
-const Client = new fortnite("ae9f5ab0-f691-4207-b445-5686ec998441")
 
 const bot = new Discord.Client({disableEveryone: true});
 
