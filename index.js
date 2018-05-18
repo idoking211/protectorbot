@@ -227,8 +227,8 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     .setColor("#268ccf")
     .setThumbnail(bicon)
     .addField("Moderation Commands",".kick (user) (reason) - Kick a User.\n.clear - clear the chat\n.ban (user) (reason) - Ban a User.\n.report (user) (reason) - report about User.\n.warn (user) (reason) - Warn a User.")
-    .addField("Server Commands",".serverinfo - Server Informations.\n.poll (question) - Poll about Question\n.ping - Ping Pong");
-
+   .addField("Server Commands",".serverinfo - Server Informations.\n.poll (question) - Poll about Question\n.ping - Ping Pong")
+   .addField("Creators",".creator - Bot Creators");
     return message.author.send(botembed);
   }
   if(cmd === `${prefix}mute`){
