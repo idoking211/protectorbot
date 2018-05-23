@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
 
-const swearWords = ["fuck", "shit", "זונה", "חרא"];
+const swearWords = ["fuck", "https://discord.gg/", "shit", "זונה", "חרא"];
 
 bot.on("ready", async () => {
   console.log(`Bot is Online!`);
