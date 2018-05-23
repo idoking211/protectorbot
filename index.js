@@ -166,44 +166,6 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     return message.channel.send(serverembed);
   }
   
-  if (cmd === `${prefix}unmute`) { // creates the command unmute
-      if (!message.member.roles.some(r=>["Moderator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
-      var unmutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
-      if (!unmutedmember) return message.reply("Please mention a valid member of this server!") // if there is no kickedmmeber var
-      unmutedmember.removeRole(mutedrole) //if reason, kick
-          .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); //if error, display error
-      message.reply(`${unmutedmember.user} has been unmuted by ${message.author}!`); // sends a message saying he was kicked
-  }
-  
-    if(cmd === `${prefix}mute`){
-
-   if (!message.member.hasPermission('MANAGE_MESSAGES')) return errors.noPermissions(message, 'MANAGE_MESSAGES');
-
-  let user = message.guild.member(message.mentions.members.first());
-  if (!user) return errors.invalidUser(message);
-  if (user.hasPermission('MANAGE_MESSAGES')) return errors.cannotPunish(message);
-
-  let reason = args.slice(1).join(" ");
-  if (!reason) return errors.invalidReason(message);
-
-  let muterole = message.guild.roles.find('name', 'Muted');
-  if (!muterole) {
-    try {
-      muterole = await message.guild.createRole({
-        name: 'Muted',
-        color: "#000000",
-        permissions:[]
-      })
-      message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(muterole, {
-          SEND_MESSAGES: false,
-          ADD_REACTIONS: false,
-          SPEAK: false
-        });
-      });
-    } catch(e) {
-      console.log(e.stack);
-    }
   
 
   if(cmd === `${prefix}membercount`){
