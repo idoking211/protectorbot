@@ -254,7 +254,7 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     let botembed = new Discord.RichEmbed()
     .setDescription("Creators of the Bot")
     .setColor("#ff9f04")
-    .addField("\nCreators","<@354952398772371458>\n<@311604263379795970>")
+    .addField("\nCreators","<@354952398772371458>")
 
     return message.channel.send(botembed);
 }
@@ -266,7 +266,7 @@ if( swearWords.some(word => message.content.includes(word)) ) {
     .setDescription("Help Commands")
     .setColor("#268ccf")
     .setThumbnail(bicon)
-    .addField("Moderation Commands",".kick (user) (reason) - Kick a User.\n.clear - clear the chat\n.ban (user) (reason) - Ban a User.\n.report (user) (reason) - report about User.\n.warn (user) (reason) - Warn a User.")
+    .addField("Moderation Commands",".kick (user) (reason) - Kick a User.\n.clear - clear the chat\n.clear - clear the chat\n.mute (user) - mute member\n.unmute (user) - unmute user.\n.ban (user) (reason) - Ban a User.\n.report (user) (reason) - report about User.\n.warn (user) (reason) - Warn a User.")
    .addField("Server Commands",".serverinfo - Server Informations.\n.poll (question) - Poll about Question\n.ping - Ping Pong")
    .addField("Creators",".creator - Bot Creators");
     return message.author.send(botembed);
